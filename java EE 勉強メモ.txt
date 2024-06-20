@@ -1,0 +1,42 @@
+java EE 勉強メモ
+
+・Tomcatのインストールは下記サイトを参考に行った。
+　https://qiita.com/ryome/items/5513da20c0a0f3cfdb45
+
+・C:\apache-tomcat-9.0.89\webapps\examples 内のindex.htmlからサンプルコードを見ることができる。
+
+・コンテキストルートは2種類に分かれる。参照されるべきHTML系のフォルダと、参照されるべきではない「WEB-INFフォルダ」の2つ。
+
+・「classesフォルダ」内にサーブレットのなどのクラスファイルを入れる。
+
+・コンテキストルートは「webappsフォルダ」内に入れる。
+
+・つまりhttp://localhost:8080/javaweb/index.html のようにしてページを指定する。Tomcatのwebappsフォルダが
+　Apacheでいうhtdocsフォルダとなっている。
+
+・
+
+=================================================================================================================================
+
+エラーやミス、わからないことなど
+
+・http://localhost:8080/ のように省略形で記述した場合に表示されるページはどこで指定しているのか？
+
+・HelloWorld.javaで「cannot be resolved to a type」が多く出る。恐らくサーブレット関係を上手く読み込めていない。
+　　→ vscodeの左メニューにある「エクスプローラー」→「java projectsのその他の操作」→「Configure classpath」→「Libraries」に
+　　　Tomcatのlibフォルダ内にある jsp-api.jar と servlet-api.jar を設定したら読み込むことができた。
+　　　参考サイト　https://unity-engineer.top/note?id=J0001
+
+・javac HelloWorld.java コマンドで「シンボルを見つけられません」「パッケージjavax.servlet(.http)は存在しません」のエラーが出る
+　C:\Program Files\java\jdk-21\bin にjavac.exeがある。このjavac.exeはどこのjarファイルを読み込んでいる？
+　そこにTomcatのservlet-api.jarとjsp-api.jar を持ってくれば読み込んでくれるのでは？
+　　→ Windowsに設定していた「CLASSPATH環境変数」に設定していた値が違うことによるエラーだった。
+　　　いろいろ調べると、サードパーティライブラリを読み込むときはクラスパスに設定しなければならないとのことだったので
+　　　CLASSPATHに設定していた値をもう一度想定する値に設定し直したら無事読み込めた。
+　　　上手くいかなかった原因としては、何かのサイトに書いてあるままにCLASSPATH変数を設定してしまっていたこと、
+　　　Windows11のファイル右クリック→パスのコピーから貼り付けると文頭と文末にダブルクォーテーションがつくこと、どちらも考えられる。
+
+　　　参考サイト　https://qiita.com/maple_syrup/items/4aba0924d0a3b06dce16
+　　　上記サイトのおかげでjarファイルの場合はクラスファイル名まで指定することが分かった。
+
+・

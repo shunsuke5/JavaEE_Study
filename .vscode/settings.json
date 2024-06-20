@@ -1,0 +1,9 @@
+{
+    "java.project.sourcePaths": [
+        "study"
+    ],
+    "java.project.referencedLibraries": [
+        "c:\\apache-tomcat-9.0.89\\lib\\servlet-api.jar",
+        "c:\\apache-tomcat-9.0.89\\lib\\jsp-api.jar"
+    ]
+}

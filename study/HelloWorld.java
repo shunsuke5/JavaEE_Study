@@ -1,7 +1,9 @@
 import java.io.*;
 import javax.servlet.*;
 import javax.servlet.http.*;
+import javax.servlet.annotation.*;
 
+@WebServlet("/study/HelloWorld")
 public class HelloWorld extends HttpServlet {
 
     public void doGet(HttpServletRequest request, HttpServletResponse response) 

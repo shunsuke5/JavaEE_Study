@@ -39,4 +39,8 @@ java EE 勉強メモ
 　　　参考サイト　https://qiita.com/maple_syrup/items/4aba0924d0a3b06dce16
 　　　上記サイトのおかげでjarファイルの場合はクラスファイル名まで指定することが分かった。
 
+・クラスパスは解決したが、パスを打っても404ステータスが返されてしまう。
+　https://kanda-it-school-kensyu.com/java-jsp-servlet-contents/jjs_ch03/jjs_0301/
+　上記サイトを参考に、web.xmlを記述してみる。
+
 ・
